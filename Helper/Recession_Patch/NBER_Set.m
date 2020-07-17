@@ -18,7 +18,7 @@ NBER_recessions= ([ ...
 ylimits = ylim; 
 xlimits = xlim;
 
-for iiii=1:1:size(NBER_recessions,1),
+for iiii=1:1:size(NBER_recessions,1)
 
     %full grey area, without edges 
     patch([NBER_recessions(iiii,1),NBER_recessions(iiii,2),...
