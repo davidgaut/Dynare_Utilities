@@ -17,23 +17,26 @@ CEPR_recessions_NUM = ([
 ylimits = ylim; 
 xlimits = xlim;
 
-for iiii=1:1:size(CEPR_recessions,1),
+shade = 0.9;
+% shade = 0.5;
+
+for iiii=1:1:size(CEPR_recessions,1)
 
     %full grey area, without edges 
     patch([CEPR_recessions(iiii,1),CEPR_recessions(iiii,2),...
            CEPR_recessions(iiii,2),CEPR_recessions(iiii,1)]',...
-        [ylimits(1) ylimits(1) ylimits(2) ylimits(2)]',[0.9 0.9 0.9],'EdgeColor','none'); hold on
+        [ylimits(1) ylimits(1) ylimits(2) ylimits(2)]',shade,'EdgeColor','none'); hold on
     
     
     %edges at bottom
     patch([CEPR_recessions(iiii,1),CEPR_recessions(iiii,2),...
            CEPR_recessions(iiii,2),CEPR_recessions(iiii,1)]',...
-        [ylimits(1) ylimits(1) ylimits(1) ylimits(1)]',[0.9 0.9 0.9]); hold on
+        [ylimits(1) ylimits(1) ylimits(1) ylimits(1)]',shade); hold on
     
     %edges at top
     patch([CEPR_recessions(iiii,1),CEPR_recessions(iiii,2),...
            CEPR_recessions(iiii,2),CEPR_recessions(iiii,1)]',...
-        [ylimits(2) ylimits(2) ylimits(2) ylimits(2)]',[0.9 0.9 0.9]); hold on
+        [ylimits(2) ylimits(2) ylimits(2) ylimits(2)]',shade); hold on
     
 end
 

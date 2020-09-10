@@ -66,7 +66,8 @@ else
 end
 
 sizeS = '                  ' ;    
-    
+    disp(strcat('% Estimation Time: ',datestr(now())))
+    disp('%--------------------------------------------------------------------------')
 for ii = 1 : length(names_params)
     
     name = names_params(ii); val1 = length(char(name));

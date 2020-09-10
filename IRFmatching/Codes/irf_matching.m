@@ -42,7 +42,7 @@ criterion  = ((Var_IRF-psitheta))'*invVarNorm*((Var_IRF-psitheta));
 likelihood = (size(Var_IRF,1)/2*log(1/2/3.141592653589793)-1/2*logdetVarNorm-1/2*criterion); %in logs
 dlik       = (Var_IRF-psitheta).^2.*diag(invVarNorm);
 
-if isnan(criterion); 
+if isnan(criterion)
 	fval = Inf;
 return
 end
