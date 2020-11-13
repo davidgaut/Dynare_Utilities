@@ -161,7 +161,7 @@ end
 
 %% perform initial estimation checks;
 try
-%     oo_ = initial_estimation_checks(objective_function,xparam1,dataset_,dataset_info,M_,estim_params_,options_,bayestopt_,bounds,oo_);
+    oo_ = initial_estimation_checks(objective_function,xparam1,dataset_,dataset_info,M_,estim_params_,options_,bayestopt_,bounds,oo_);
 catch % if check fails, provide info on using calibration if present
     e = lasterror();
     if estim_params_.full_calibration_detected %calibrated model present and no explicit starting values
@@ -218,6 +218,9 @@ if ~isequal(options_.mode_compute,0) && ~options_.mh_posterior_mode_estimation
 
     [xparam1, fval, exitflag, hh, options_, Scale, new_rat_hess_info] = dynare_minimize_objective(objective_function,xparam1,options_.mode_compute,options_,[bounds.lb bounds.ub],bayestopt_.name,bayestopt_,hh,dataset_,dataset_info,options_,M_,estim_params_,bayestopt_,bounds,oo_);
     fprintf('\nFinal value of minus the log posterior (or likelihood):%f \n', fval);
+	
+    
+%     hh1=hh;
 
     if isnumeric(options_.mode_compute) && options_.mode_compute==5 && options_.analytic_derivation==-1 %reset options changed by newrat
         options_.analytic_derivation = options_analytic_derivation_old; %reset
@@ -243,6 +246,7 @@ if ~isequal(options_.mode_compute,0) && ~options_.mh_posterior_mode_estimation
                     hh = hessian(objective_function, xparam1, options_.gstep, dataset_, dataset_info, options_, M_, estim_params_, bayestopt_, bounds,oo_);
                 end
                 hh = reshape(hh, nx, nx);
+%                 disp(['Norm of hessian computation is', num2str(norm(hh1-hh))]);
             elseif isnumeric(options_.mode_compute) && isequal(options_.mode_compute,5)
                 % other numerical hessian options available with optimizer 5
                 %

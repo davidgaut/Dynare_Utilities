@@ -334,12 +334,22 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 lnprior = priordens(xparam1,BayesInfo.pshape,BayesInfo.p6,BayesInfo.p7,BayesInfo.p3,BayesInfo.p4);
 
+% Sign restrictions
+if 0
+SS(Model.exo_names_orig_ord,Model.exo_names_orig_ord) = Model.Sigma_e+1e-14*eye(Model.exo_nbr);
+cs = transpose(chol(SS));
+y2(:,:,1) = irf(Model, DynareOptions,DynareResults.dr,cs(Model.exo_names_orig_ord,strcmp('e_nu',Model.exo_names)), 1, DynareOptions.drop, ...
+                    DynareOptions.replic, DynareOptions.order) * 1;
+if y2(strcmp('qh_',Model.endo_names)) > 0; fval = Inf; return;end                
+end    
+% IRF Matching
 if isfield(DynareOptions,'irfs_match_estimation')
     [fval,lik] = irf_matching(Model,DynareResults,DynareOptions,lnprior);
     DLIK       = [-lnprior; lik(:)];
     
 	   return
        
+% Frequency Estimation
 elseif isfield(DynareOptions,'frequency_estimation')
     if DynareResults.dr.frequency_estimation_init
        [Model.Iy,DynareOptions.varobs_idx] = frequency_estimation_init(DatasetInfo,Model,DynareResults,DynareOptions);
@@ -372,8 +382,9 @@ StateSpaceModel.observable_pos = DynareOptions.varobs_id;
 % [CVD, ~] = conditional_variance_decomposition(StateSpaceModel, [1 16 32], [116    86    92]); % for y_, c_, i_  
 %[find(strcmp(M_.endo_names,'y_')) find(strcmp(M_.endo_names,'c_')) find(strcmp(M_.endo_names,'i_'))]
 % [CVD, ~] = conditional_variance_decomposition(StateSpaceModel, [1 16 32], [106    78    84]); % for y_, c_, i_
-[CVD, ~] = conditional_variance_decomposition(StateSpaceModel, [1 16 32], find(strcmp(Model.endo_names,'be_'))); % for bi
-if ~all(mean(CVD(:,:,1),2) > [0.0 0.15 0.0]')
+% [CVD, ~] = conditional_variance_decomposition(StateSpaceModel, [1 16 32], [find(strcmp(Model.endo_names,'y__EA')),find(strcmp(Model.endo_names,'y__US'))]); % for bi
+[CVD, ~] = conditional_variance_decomposition(StateSpaceModel, [1 16 32], [find(strcmp(Model.endo_names,'c_'))]); % for bi
+if ~all(mean(CVD(:,:,strcmp(Model.exo_names,'e_nu')),1) > [0.35 0.45 0.40]')
         fval = Inf;
         info(1) = 86;
         info(2) = 1.0222;
