@@ -50,7 +50,7 @@ end
 % ------------------------------------------------------------------------------
 % Form posterior for impulse response matching
 % ------------------------------------------------------------------------------
-fval = - (likelihood + lnprior);
+fval = - (likelihood + 1*lnprior);
 
 
 

@@ -1,6 +1,0 @@
-
-function treated_series = bp_nan(series) 
-
-for ii = 1:size(series,2)
-    treated_series(:,ii) = NaN(length(
-    bp(series(~isnan(series)),6,32);

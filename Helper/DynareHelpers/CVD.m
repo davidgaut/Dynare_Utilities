@@ -91,7 +91,7 @@ if options_.hp_filter == 0 && ~options_.bandpass.indicator
 else 
 
     lambda = options_.hp_filter;
-    ngrid  = options_.hp_ngrid;
+    ngrid  = 512;
     freqs  = 0 : ((2*pi)/ngrid) : (2*pi*(1 - .5/ngrid)); %[0,2*pi)
     tpos   = exp( sqrt(-1)*freqs);  %positive frequencies
     tneg   = exp(-sqrt(-1)*freqs);  %negative frequencies
@@ -196,5 +196,4 @@ cv_disp = (cv_disp)';
 if sum(sum(cv_disp,2) - 100) > 1e-4; warning('CVD does not add up to 100'); end
 
 format bank
-
 TCVD = array2table(cv_disp,'RowNames',VV,'VariableNames',cellstr(M_.exo_names));

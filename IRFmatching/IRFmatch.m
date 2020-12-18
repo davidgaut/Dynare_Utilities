@@ -11,59 +11,53 @@ else
     clear_persistent_variables(fileparts(which('dynare')), false)
 end
 tic0 = tic;
+% Save empty dates and dseries objects in memory.
+dates('initialize');
+dseries('initialize');
 % Define global variables.
 global M_ options_ oo_ estim_params_ bayestopt_ dataset_ dataset_info estimation_info ys0_ ex0_
 options_ = [];
 M_.fname = 'IRFmatch';
-M_.dynare_version = '4.6-unstable-8a6e3cc7fe3648bbb228f8b6b10178d66219526f';
-oo_.dynare_version = '4.6-unstable-8a6e3cc7fe3648bbb228f8b6b10178d66219526f';
-options_.dynare_version = '4.6-unstable-8a6e3cc7fe3648bbb228f8b6b10178d66219526f';
+M_.dynare_version = '4.5.6';
+oo_.dynare_version = '4.5.6';
+options_.dynare_version = '4.5.6';
 %
 % Some global variables initialization
 %
 global_initialization;
 diary off;
 diary('IRFmatch.log');
-M_.exo_names = cell(2,1);
-M_.exo_names_tex = cell(2,1);
-M_.exo_names_long = cell(2,1);
-M_.exo_names(1) = {'eps1'};
-M_.exo_names_tex(1) = {'eps1'};
-M_.exo_names_long(1) = {'eps1'};
-M_.exo_names(2) = {'eps2'};
-M_.exo_names_tex(2) = {'eps2'};
-M_.exo_names_long(2) = {'eps2'};
-M_.endo_names = cell(2,1);
-M_.endo_names_tex = cell(2,1);
-M_.endo_names_long = cell(2,1);
-M_.endo_names(1) = {'X1'};
-M_.endo_names_tex(1) = {'X1'};
-M_.endo_names_long(1) = {'X1'};
-M_.endo_names(2) = {'X2'};
-M_.endo_names_tex(2) = {'X2'};
-M_.endo_names_long(2) = {'X2'};
+M_.exo_names = 'eps1';
+M_.exo_names_tex = 'eps1';
+M_.exo_names_long = 'eps1';
+M_.exo_names = char(M_.exo_names, 'eps2');
+M_.exo_names_tex = char(M_.exo_names_tex, 'eps2');
+M_.exo_names_long = char(M_.exo_names_long, 'eps2');
+M_.endo_names = 'X1';
+M_.endo_names_tex = 'X1';
+M_.endo_names_long = 'X1';
+M_.endo_names = char(M_.endo_names, 'X2');
+M_.endo_names_tex = char(M_.endo_names_tex, 'X2');
+M_.endo_names_long = char(M_.endo_names_long, 'X2');
 M_.endo_partitions = struct();
-M_.param_names = cell(6,1);
-M_.param_names_tex = cell(6,1);
-M_.param_names_long = cell(6,1);
-M_.param_names(1) = {'f11'};
-M_.param_names_tex(1) = {'f11'};
-M_.param_names_long(1) = {'f11'};
-M_.param_names(2) = {'f12'};
-M_.param_names_tex(2) = {'f12'};
-M_.param_names_long(2) = {'f12'};
-M_.param_names(3) = {'f21'};
-M_.param_names_tex(3) = {'f21'};
-M_.param_names_long(3) = {'f21'};
-M_.param_names(4) = {'f22'};
-M_.param_names_tex(4) = {'f22'};
-M_.param_names_long(4) = {'f22'};
-M_.param_names(5) = {'b12'};
-M_.param_names_tex(5) = {'b12'};
-M_.param_names_long(5) = {'b12'};
-M_.param_names(6) = {'b21'};
-M_.param_names_tex(6) = {'b21'};
-M_.param_names_long(6) = {'b21'};
+M_.param_names = 'f11';
+M_.param_names_tex = 'f11';
+M_.param_names_long = 'f11';
+M_.param_names = char(M_.param_names, 'f12');
+M_.param_names_tex = char(M_.param_names_tex, 'f12');
+M_.param_names_long = char(M_.param_names_long, 'f12');
+M_.param_names = char(M_.param_names, 'f21');
+M_.param_names_tex = char(M_.param_names_tex, 'f21');
+M_.param_names_long = char(M_.param_names_long, 'f21');
+M_.param_names = char(M_.param_names, 'f22');
+M_.param_names_tex = char(M_.param_names_tex, 'f22');
+M_.param_names_long = char(M_.param_names_long, 'f22');
+M_.param_names = char(M_.param_names, 'b12');
+M_.param_names_tex = char(M_.param_names_tex, 'b12');
+M_.param_names_long = char(M_.param_names_long, 'b12');
+M_.param_names = char(M_.param_names, 'b21');
+M_.param_names_tex = char(M_.param_names_tex, 'b21');
+M_.param_names_long = char(M_.param_names_long, 'b21');
 M_.param_partitions = struct();
 M_.exo_det_nbr = 0;
 M_.exo_nbr = 2;
@@ -71,7 +65,7 @@ M_.endo_nbr = 2;
 M_.param_nbr = 6;
 M_.orig_endo_nbr = 2;
 M_.aux_vars = [];
-options_.varobs = cell(1, 1);
+options_.varobs = cell(1);
 options_.varobs(1)  = {'X1'};
 options_.varobs_id = [ 1  ];
 M_.Sigma_e = zeros(2, 2);
@@ -83,22 +77,13 @@ M_.det_shocks = [];
 options_.block=0;
 options_.bytecode=0;
 options_.use_dll=0;
-M_.nonzero_hessian_eqs = [];
-M_.hessian_eq_zero = isempty(M_.nonzero_hessian_eqs);
+M_.hessian_eq_zero = 1;
 erase_compiled_function('IRFmatch_static');
 erase_compiled_function('IRFmatch_dynamic');
 M_.orig_eq_nbr = 2;
 M_.eq_nbr = 2;
 M_.ramsey_eq_nbr = 0;
 M_.set_auxiliary_variables = exist(['./' M_.fname '_set_auxiliary_variables.m'], 'file') == 2;
-M_.max_endo_lag_orig = 1;
-M_.max_endo_lead_orig = 0;
-M_.max_exo_lag_orig = 0;
-M_.max_exo_lead_orig = 0;
-M_.max_exo_det_lag_orig = 0;
-M_.max_exo_det_lead_orig = 0;
-M_.max_lag_orig = 1;
-M_.max_lead_orig = 0;
 M_.lead_lag_incidence = [
  1 3;
  2 4;]';
@@ -112,7 +97,6 @@ M_.ndynamic   = 2;
 M_.equations_tags = {
 };
 M_.static_and_dynamic_models_differ = 0;
-M_.state_var = [1 2 ];
 M_.exo_names_orig_ord = [1:2];
 M_.maximum_lag = 1;
 M_.maximum_lead = 0;
@@ -148,7 +132,7 @@ M_.Sigma_e(1, 1) = (1)^2;
 M_.Sigma_e(2, 2) = (1)^2;
 steady;
 options_.order = 1;
-var_list_ = {};
+var_list_ = char();
 info = stoch_simul(var_list_);
 calib = M_.params;
 clear X1_resp_eps1 X1_resp_eps2 X2_resp_eps1 X2_resp_eps2 Var_IRF
@@ -226,12 +210,12 @@ options_.mode_compute = 7;
 options_.plot_priors = 1;
 options_.datafile = 'fsdat.mat';
 options_.order = 1;
-var_list_ = {};
+var_list_ = char();
 oo_recursive_=dynare_estimation(var_list_);
 xparam = get_posterior_parameters('mode',M_,estim_params_,oo_,options_);
 M_ = set_all_parameters(xparam,estim_params_,M_);
 options_.order = 1;
-var_list_ = {};
+var_list_ = char();
 info = stoch_simul(var_list_);
 FigSize
 subplot(2,2,1)
@@ -249,7 +233,7 @@ title('X2 to eps2'); legend([H.patch h],{'VAR';'Estimated DSGE'})
 aux = [F11; F12; F21; F22; B12; B21;];
 aux = [calib aux xparam oo_.prior.mean ]
 in.cnames = strvcat('calibrated', 'true','posterior','prior');
-in.rnames = ['   '; M_.param_names];
+in.rnames = ['   '; char(M_.param_names)];
 disp('-----------')
 disp('Estimation results:')
 mprint(aux,in)

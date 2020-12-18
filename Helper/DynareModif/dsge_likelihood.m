@@ -340,7 +340,19 @@ SS(Model.exo_names_orig_ord,Model.exo_names_orig_ord) = Model.Sigma_e+1e-14*eye(
 cs = transpose(chol(SS));
 y2(:,:,1) = irf(Model, DynareOptions,DynareResults.dr,cs(Model.exo_names_orig_ord,strcmp('e_nu',Model.exo_names)), 1, DynareOptions.drop, ...
                     DynareOptions.replic, DynareOptions.order) * 1;
-if y2(strcmp('qh_',Model.endo_names)) > 0; fval = Inf; return;end                
+if y2(strcmp('qh_',Model.endo_names)) > 0
+        fval = Inf;
+        info(1) = 86;
+        info(2) = 1.0222;
+        info(4) = info(2);
+
+        exit_flag = 0;
+        if analytic_derivation
+            DLIK=ones(length(xparam1),1);
+        end
+        return
+end
+    
 end    
 % IRF Matching
 if isfield(DynareOptions,'irfs_match_estimation')

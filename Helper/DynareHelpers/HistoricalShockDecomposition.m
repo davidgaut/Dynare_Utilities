@@ -6,10 +6,10 @@ varnames = cellstr(M_.endo_names);
 shock = {'e_nu'};
 shock_number = find(strcmp(shock,M_.exo_names));
 
-var_names = {'consumption_obs','householdcredit_obs','householdspread_obs','investment_obs',...
-             'firmcredit_obs','firmspread_obs','bankcapital_obs','houseprice_obs',...
-             'stockprice_obs','npl_obs'};
-    
+% var_names = {'consumption_obs','householdcredit_obs','householdspread_obs','investment_obs',...
+%              'firmcredit_obs','firmspread_obs','bankcapital_obs','houseprice_obs',...
+%              'stockprice_obs','npl_obs'};
+%     
 var_names =   options_.varobs;       
 
 %--------------------------------------------------------------------------
@@ -113,8 +113,8 @@ axegstack{ij} = p;
 figstack{ij}  = s1;
 end
 
-suptitle({''})
-set(t6,'FontSize',fontsize)
+% suptitle({''})
+% set(t6,'FontSize',fontsize)
 
 
 % Size of adjustment
@@ -123,11 +123,11 @@ down = 0.02; % 0.01 paper, 0.02 slides
 
 
 % Subplot 1
-for ij = 1:length(var_names)
-p1    = get(figstack{ij},'position'); % Get position
-p1(2) = p1(2) + up;         % Second element is bottom, adjust bottom
-set(figstack{ij},'position',p1);      % Define new position
-end
+% for ij = 1:length(var_names)
+% p1    = get(figstack{ij},'position'); % Get position
+% p1(2) = p1(2) + up;         % Second element is bottom, adjust bottom
+% set(figstack{ij},'position',p1);      % Define new position
+% end
 
 
 %--------------------------------------------------------------------------
@@ -147,8 +147,8 @@ legend boxoff
 % Common Y Label
 %--------------------------------------------------------------------------
 
-height = p1(2) + p1(4) - p4(2);
-h3     = axes('position',[p4(1) p4(2) p4(3) height],'visible','off');
+% height = p1(2) + p1(4) - p4(2);
+% h3     = axes('position',[p4(1) p4(2) p4(3) height],'visible','off');
 
 % Common y label
 commonlabel = ylabel('Annual Percentage Points','fontsize',fontsize,'visible','on');
