@@ -86,7 +86,7 @@ end;
 varobs X1;
 
 // Settings
-mod_var_list = {'X2' 'X1'};                                                % List variables to match
+mod_var_list   = {'X2' 'X1'};                                              % List variables to match
 mod_shock_list = {'eps1' 'eps2'};                                          % Shocks conditional on which to match
 options_.irfs_match_estimation = 1;                                        % IRF Matching
 horizon_est  = 10;                                                         % Horizon to match
