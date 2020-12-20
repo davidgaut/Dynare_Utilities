@@ -1,0 +1,55 @@
+Starting preprocessing of the model file ...
+Substitution of Expectation operator: added 1 auxiliary variables and equations.
+Found 12 equation(s).
+Evaluating expressions...done
+Computing static model derivatives (order 1).
+Computing dynamic model derivatives (order 2).
+Processing outputs ...
+done
+Preprocessing completed.
+
+ans =
+
+  12×38 <a href="matlab:helpPopup char" style="font-weight:bold">char</a> array
+
+    'c                      2.5549  2.18234'
+    'd                    0.222808 0.508009'
+    'i                     1.08899 0.433804'
+    'k                     36.4813  14.5324'
+    'r1                    1.01114  1.02218'
+    'rf1                   1.01114  1.01114'
+    'w                     2.33209  1.67433'
+    'y                     3.64389  2.61615'
+    'z                           1        1'
+    'mu                    8.03897  17.0962'
+    'erp1                        00.0110384'
+    'AUX_EXPECT_LEAD_0_108       1        1'
+
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('print_info', 'D:\Programmes\Dynare\dynare-4.6.2\matlab\print_info.m', 32)" style="font-weight:bold">print_info</a> (<a href="matlab: opentoline('D:\Programmes\Dynare\dynare-4.6.2\matlab\print_info.m',32,0)">line 32</a>)
+The steadystate file did not compute the steady state
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('stoch_simul', 'D:\Codes\Matlab_File\Dynare_Modified_files\Helper\DynareModif\stoch_simul.m', 103)" style="font-weight:bold">stoch_simul</a> (<a href="matlab: opentoline('D:\Codes\Matlab_File\Dynare_Modified_files\Helper\DynareModif\stoch_simul.m',103,0)">line 103</a>)
+    print_info(info, options_.noprint, options_);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('jermann98.driver', 'D:\Codes\Matlab_File\Dynare_Modified_files\RiskySteadyState\jermann98_example\+jermann98\driver.m', 247)" style="font-weight:bold">jermann98.driver</a> (<a href="matlab: opentoline('D:\Codes\Matlab_File\Dynare_Modified_files\RiskySteadyState\jermann98_example\+jermann98\driver.m',247,0)">line 247</a>)
+[info, oo_, options_, M_] = stoch_simul(M_, options_, oo_, var_list_);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'D:\Programmes\Dynare\dynare-4.6.2\matlab\dynare.m', 293)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('D:\Programmes\Dynare\dynare-4.6.2\matlab\dynare.m',293,0)">line 293</a>)
+evalin('base',[fname '.driver']) ;
+} 
+ccc
+edit YD_Estimation.mod
+ccc
+dynare YD_Estimation
+Using 64-bit preprocessor
+Starting Dynare (version 4.6.2).
+Calling Dynare with arguments: none
+Starting preprocessing of the model file ...
+Found 129 equation(s).
+Evaluating expressions...done
+Computing static model derivatives (order 1).
+Computing dynamic model derivatives (order 1).
+Processing outputs ...
+done
+Preprocessing completed.
+
