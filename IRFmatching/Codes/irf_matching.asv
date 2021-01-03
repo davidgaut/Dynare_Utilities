@@ -1,15 +1,25 @@
 
 function [fval,dlik] = irf_matching(Model,oo_,options_,lnprior)
+% Function to compute likelihood of irfs (C
 
+% David Gauthier - Bank of England
+% davd.gauthier@gmail.com
+% Financial Stress and the Debt Structure (2020)
+
+
+% Options
+scale_factor  = 100; % scale DSGE irfs in percents
+include_prior = 1;   % include prior in optimization
+
+% Load impulse responses from the VAR
 Var_IRF        = Model.Var_IRF;
 invVarNorm     = Model.invVarNorm;
 logdetVarNorm  = Model.logdetVarNorm;
 horizon_est    = Model.horizon_est;
 mod_var_list   = Model.mod_var_list;
 mod_shock_list = Model.mod_shock_list;
-SR             = Model.SR;
 
-% Get impulse responses
+% Get impulse responses in the DSGE
 var_list  = mod_var_list;
 [i_var,~] = varlist_indices(var_list,Model.endo_names);
 
@@ -34,10 +44,10 @@ y2 = y2 ./ repmat(oo_.dr.ys,1,horizon_est);
 
 % Stack model impulse responses
 DSGE_IRF = permute(y2(i_var,:,:),[2,1,3]);
-DSGE_IRF = DSGE_IRF(1:horizon_est,:,:) * 100;
+DSGE_IRF = DSGE_IRF(1:horizon_est,:,:) * scale_factor;
 psitheta = DSGE_IRF(:);
 
-% evaluate criterion and form likelihood
+% Evaluate criterion and form likelihood
 criterion  = ((Var_IRF-psitheta))'*invVarNorm*((Var_IRF-psitheta));
 likelihood = (size(Var_IRF,1)/2*log(1/2/3.141592653589793)-1/2*logdetVarNorm-1/2*criterion); %in logs
 dlik       = (Var_IRF-psitheta).^2.*diag(invVarNorm);
@@ -50,7 +60,7 @@ end
 % ------------------------------------------------------------------------------
 % Form posterior for impulse response matching
 % ------------------------------------------------------------------------------
-fval = - (likelihood + 1*lnprior);
+fval = - (likelihood + include_prior*lnprior);
 
 
 

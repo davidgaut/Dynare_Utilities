@@ -363,7 +363,7 @@ if isfield(DynareOptions,'irfs_match_estimation')
        
 % Frequency Estimation
 elseif isfield(DynareOptions,'frequency_estimation')
-    % Initialize frequency estimation
+    % Initialize Frequency Estimation
     if DynareResults.dr.frequency_estimation_init
        [Model.Iy,DynareOptions.varobs_idx] = frequency_estimation_init(DatasetInfo,Model,DynareResults,DynareOptions);
         DynareResults.dr.frequency_estimation_init = 0;

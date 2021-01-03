@@ -1,6 +1,7 @@
 
 function [fval,dlik] = irf_matching(Model,oo_,options_,lnprior)
-% Function to compute likelihood of irfs
+% Function to compute likelihood of irfs (Christiano et al. 2016)
+
 % David Gauthier - Bank of England
 % davd.gauthier@gmail.com
 % Financial Stress and the Debt Structure (2020)
@@ -17,7 +18,6 @@ logdetVarNorm  = Model.logdetVarNorm;
 horizon_est    = Model.horizon_est;
 mod_var_list   = Model.mod_var_list;
 mod_shock_list = Model.mod_shock_list;
-% SR             = Model.SR;
 
 % Get impulse responses in the DSGE
 var_list  = mod_var_list;

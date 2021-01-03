@@ -1,16 +1,16 @@
 function TCVD = CVD(oo_, var_list_, M_, options_)
 
 % Computation of the covariance contribution using dynare output
-% Run CVD(oo_.dr, var_list_, M_, options_) after Dynare simulation
+% Run CVD(oo_, var_list_, M_, options_) after Dynare simulation where
+% var_list_ is a subset of M_.endo_names and the list of variable
+% considered in the CVD.
 
-% Unconditional variance-covariance of states space 'vx', using Lyapunov
-% Equation from initialized Kalman Filter: vx =  aa*vx*aa'+b2*b2'
+% Keeps settings from the simulation.
 
-% David Gauthier
+% David Gauthier - Bank of England
+% davd.gauthier@gmail.com
 % 23/05/2018
 
-
-options_.qz_criterium = 1; 
 nvar                  = length(var_list_);
 var_list_             = cellstr(var_list_);
 
@@ -107,13 +107,11 @@ else
     else
         filter_gain = 4*lambda*(1 - cos(freqs)).^2 ./ (1 + 4*lambda*(1 - cos(freqs)).^2);   %HP transfer function
     end
- 
-
-          SS(exo_names_orig_ord,exo_names_orig_ord) = M_.Sigma_e+1e-14*eye(M_.exo_nbr); %make sure Covariance matrix is positive definite
-          cs = chol(SS)';
-          SS = cs*cs';
-          b1(:,exo_names_orig_ord) = ghu1;
-          b2(:,exo_names_orig_ord) = ghu(iky,:);
+      SS(exo_names_orig_ord,exo_names_orig_ord) = M_.Sigma_e+1e-14*eye(M_.exo_nbr); %make sure Covariance matrix is positive definite
+      cs = chol(SS)';
+      SS = cs*cs';
+      b1(:,exo_names_orig_ord) = ghu1;
+      b2(:,exo_names_orig_ord) = ghu(iky,:);
 
     mathp_col = NaN(ngrid,length(ivar)^2);
     IA = eye(size(A,1));
@@ -161,17 +159,14 @@ else
           
 end
 
-%====================================================================================================================
-%====================================================================================================================         
-         
+% Build CVD table
+for ii = 1 : size(COVi,3)        
+    COVA(:,ii) = [diag(CVD(:,:,ii))];
+end
 
-       for ii = 1 : size(COVi,3)        
-            COVA(:,ii) = [diag(CVD(:,:,ii))];
-       end
-          
-       if  ~(COVA == VD)
-           error('Diag CVD different from VD')
-       end
+if  ~(COVA == VD)
+   error('Diag CVD different from VD')
+end
   
 id1 = find(strcmp(var_list_,var_list_));
 count   = 0;
@@ -192,8 +187,7 @@ end
 % turn for table
 cv_disp = (cv_disp)';
  
-% Check sums to 100
+% Check all columns sums to 100
 if sum(sum(cv_disp,2) - 100) > 1e-4; warning('CVD does not add up to 100'); end
 
-format bank
 TCVD = array2table(cv_disp,'RowNames',VV,'VariableNames',cellstr(M_.exo_names));
