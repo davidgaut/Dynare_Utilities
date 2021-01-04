@@ -8,7 +8,8 @@ function [fval,dlik] = irf_matching(Model,oo_,options_,lnprior)
 
 
 % Options
-scale_factor  = 100; % scale DSGE irfs in percents
+ss_dev        = 0;   % to set irf target in deviation from ss
+scale_factor  = 1;   % scale DSGE irfs in percents
 include_prior = 1;   % include prior in optimization
 
 % Load impulse responses from the VAR
@@ -40,7 +41,9 @@ for jj=1:nvar_exo
                     options_.replic, options_.order) * 1;
 end
 % To set in deviation from steady state
-y2 = y2 ./ repmat(oo_.dr.ys,1,horizon_est);
+if ss_dev
+    y2 = y2 ./ repmat(oo_.dr.ys,1,horizon_est);
+end
 
 % Stack model impulse responses
 DSGE_IRF = permute(y2(i_var,:,:),[2,1,3]);

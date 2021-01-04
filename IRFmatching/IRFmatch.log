@@ -61,103 +61,439 @@ X1        0.8384  0.6707  0.5366  0.4293  0.3434
 X2        0.7490  0.5992  0.4794  0.3835  0.3068
 
 You did not declare endogenous variables after the estimation/calib_smoother command.
-{Operation terminated by user during printingGenerateOutput
+Initial value of the log posterior (or likelihood): 92.6972
+ 
+ Iteration   Func-count     min f(x)         Procedure
+     0            1         -92.6972         
+     1            7         -92.7034         initial simplex
+     2            8         -92.7034         reflect
+     3            9         -92.7034         reflect
+     4           11         -92.7034         contract inside
+     5           13         -92.7034         contract outside
+     6           15         -92.7034         contract inside
+     7           16         -92.7034         reflect
+     8           17         -92.7034         reflect
+     9           18         -92.7034         reflect
+    10           20          -92.707         contract inside
+    11           21          -92.707         reflect
+    12           23          -92.707         contract inside
+    13           25          -92.707         contract outside
+    14           27         -92.7089         reflect
+    15           28         -92.7089         reflect
+    16           30         -92.7152         contract inside
+    17           32         -92.7163         contract inside
+    18           34          -92.717         contract inside
+    19           36          -92.717         contract inside
+    20           38          -92.717         contract inside
+    21           39          -92.717         reflect
+    22           41          -92.717         contract inside
+    23           43          -92.717         contract outside
+    24           45         -92.7179         contract inside
+    25           46         -92.7179         reflect
+    26           48         -92.7183         contract inside
+    27           50         -92.7183         contract inside
+    28           52         -92.7183         contract inside
+    29           54         -92.7183         contract inside
+    30           56         -92.7183         contract inside
+    31           58         -92.7184         contract inside
+    32           59         -92.7184         reflect
+    33           60         -92.7184         reflect
+    34           62         -92.7185         contract inside
+    35           64         -92.7185         contract inside
+    36           66         -92.7188         reflect
+    37           68         -92.7188         contract inside
+    38           70         -92.7188         reflect
+    39           72         -92.7188         contract inside
+    40           74         -92.7188         contract inside
+    41           76          -92.719         reflect
+    42           77          -92.719         reflect
+    43           79          -92.719         contract outside
+    44           80          -92.719         reflect
+    45           82          -92.719         contract outside
+    46           83          -92.719         reflect
+    47           85         -92.7191         reflect
+    48           86         -92.7191         reflect
+    49           88         -92.7191         contract inside
+    50           89         -92.7191         reflect
+    51           90         -92.7191         reflect
+    52           91         -92.7191         reflect
+    53           92         -92.7191         reflect
+    54           93         -92.7191         reflect
+    55           95         -92.7191         contract inside
+    56           97         -92.7191         reflect
+    57           99         -92.7191         reflect
+    58          101         -92.7191         contract inside
+    59          102         -92.7191         reflect
+    60          104         -92.7191         contract outside
+    61          106         -92.7191         contract inside
+    62          108         -92.7191         reflect
+    63          110         -92.7191         contract inside
+    64          111         -92.7191         reflect
+    65          113         -92.7191         reflect
+    66          115         -92.7192         reflect
+    67          116         -92.7192         reflect
+    68          117         -92.7192         reflect
+    69          119         -92.7192         reflect
+    70          121         -92.7192         reflect
+    71          123         -92.7192         contract inside
+    72          124         -92.7192         reflect
+    73          126         -92.7192         contract inside
+    74          127         -92.7192         reflect
+    75          128         -92.7192         reflect
+    76          130         -92.7192         contract inside
+    77          131         -92.7192         reflect
+    78          133         -92.7192         expand
+    79          134         -92.7192         reflect
+    80          135         -92.7192         reflect
+    81          136         -92.7192         reflect
+    82          138         -92.7192         expand
+    83          140         -92.7193         expand
+    84          141         -92.7193         reflect
+    85          143         -92.7193         expand
+    86          144         -92.7193         reflect
+    87          145         -92.7193         reflect
+    88          147         -92.7194         expand
+    89          148         -92.7194         reflect
+    90          149         -92.7194         reflect
+    91          151         -92.7194         expand
+    92          153         -92.7195         expand
+    93          155         -92.7196         expand
+    94          156         -92.7196         reflect
+    95          157         -92.7196         reflect
+    96          158         -92.7196         reflect
+    97          159         -92.7196         reflect
+    98          160         -92.7196         reflect
+    99          161         -92.7196         reflect
+   100          163         -92.7196         expand
+   101          164         -92.7196         reflect
+   102          165         -92.7196         reflect
+   103          166         -92.7196         reflect
+   104          167         -92.7196         reflect
+   105          168         -92.7196         reflect
+   106          170         -92.7196         reflect
+   107          172         -92.7196         contract inside
+   108          174         -92.7196         contract inside
+   109          176         -92.7196         contract outside
+   110          178         -92.7196         contract outside
+   111          179         -92.7196         reflect
+   112          181         -92.7196         reflect
+   113          183         -92.7196         contract inside
+   114          184         -92.7196         reflect
+   115          185         -92.7196         reflect
+   116          187         -92.7196         contract inside
+   117          188         -92.7196         reflect
+   118          189         -92.7196         reflect
+   119          190         -92.7196         reflect
+   120          192         -92.7196         contract inside
+   121          194         -92.7196         contract inside
+   122          196         -92.7196         contract outside
+   123          197         -92.7196         reflect
+   124          199         -92.7196         contract inside
+   125          201         -92.7196         contract inside
+   126          203         -92.7196         contract outside
+   127          205         -92.7196         reflect
+   128          207         -92.7196         contract inside
+   129          209         -92.7196         contract inside
+   130          211         -92.7196         contract inside
+   131          212         -92.7196         reflect
+   132          214         -92.7196         reflect
+   133          216         -92.7196         expand
+   134          217         -92.7196         reflect
+   135          219         -92.7196         contract inside
+   136          220         -92.7196         reflect
+   137          221         -92.7196         reflect
+   138          222         -92.7196         reflect
+   139          223         -92.7196         reflect
+   140          225         -92.7196         contract outside
+   141          227         -92.7196         reflect
+   142          229         -92.7196         expand
+   143          231         -92.7196         contract inside
+   144          232         -92.7196         reflect
+   145          234         -92.7196         expand
+   146          235         -92.7196         reflect
+   147          236         -92.7196         reflect
+   148          237         -92.7196         reflect
+   149          238         -92.7196         reflect
+   150          240         -92.7196         expand
+   151          241         -92.7196         reflect
+   152          242         -92.7196         reflect
+   153          244         -92.7196         expand
+   154          245         -92.7196         reflect
+   155          246         -92.7196         reflect
+   156          248         -92.7196         expand
+   157          249         -92.7196         reflect
+   158          251         -92.7197         expand
+   159          252         -92.7197         reflect
+   160          254         -92.7197         expand
+   161          255         -92.7197         reflect
+   162          256         -92.7197         reflect
+   163          257         -92.7197         reflect
+   164          259         -92.7197         expand
+   165          260         -92.7197         reflect
+   166          261         -92.7197         reflect
+   167          262         -92.7197         reflect
+   168          264         -92.7197         expand
+   169          266         -92.7197         expand
+   170          267         -92.7197         reflect
+   171          268         -92.7197         reflect
+   172          269         -92.7197         reflect
+   173          271         -92.7197         expand
+   174          273         -92.7197         reflect
+   175          275         -92.7197         expand
+   176          276         -92.7197         reflect
+   177          277         -92.7197         reflect
+   178          278         -92.7197         reflect
+   179          279         -92.7197         reflect
+   180          281         -92.7197         expand
+   181          282         -92.7197         reflect
+   182          283         -92.7197         reflect
+   183          285         -92.7197         contract inside
+   184          287         -92.7197         reflect
+   185          289         -92.7197         reflect
+   186          291         -92.7197         reflect
+   187          293         -92.7197         reflect
+   188          295         -92.7198         reflect
+   189          297         -92.7198         contract outside
+   190          299         -92.7198         reflect
+   191          300         -92.7198         reflect
+   192          302         -92.7198         reflect
+   193          304         -92.7198         contract inside
+   194          305         -92.7198         reflect
+   195          307         -92.7198         contract inside
+   196          308         -92.7198         reflect
+   197          309         -92.7198         reflect
+   198          311         -92.7198         contract inside
+   199          313         -92.7198         contract inside
+   200          315         -92.7198         reflect
+   201          317         -92.7198         contract inside
+   202          318         -92.7198         reflect
+   203          319         -92.7198         reflect
+   204          320         -92.7198         reflect
+   205          321         -92.7198         reflect
+   206          323         -92.7198         contract inside
+   207          324         -92.7198         reflect
+   208          326         -92.7198         contract inside
+   209          328         -92.7198         reflect
+   210          330         -92.7198         contract inside
+   211          331         -92.7198         reflect
+   212          332         -92.7198         reflect
+   213          333         -92.7198         reflect
+   214          335         -92.7198         contract inside
+   215          336         -92.7198         reflect
+   216          338         -92.7198         contract inside
+   217          339         -92.7198         reflect
+   218          340         -92.7198         reflect
+   219          342         -92.7198         reflect
+   220          344         -92.7198         contract inside
+   221          345         -92.7198         reflect
+   222          346         -92.7198         reflect
+   223          347         -92.7198         reflect
+   224          348         -92.7198         reflect
+   225          349         -92.7198         reflect
+   226          351         -92.7198         reflect
+   227          353         -92.7198         contract inside
+   228          354         -92.7198         reflect
+   229          356         -92.7198         contract outside
+   230          358         -92.7198         contract inside
+   231          359         -92.7198         reflect
+   232          361         -92.7198         contract outside
+   233          362         -92.7198         reflect
+   234          363         -92.7198         reflect
+   235          365         -92.7198         reflect
+   236          367         -92.7198         reflect
+   237          368         -92.7198         reflect
+   238          369         -92.7198         reflect
+   239          370         -92.7198         reflect
+   240          371         -92.7198         reflect
+   241          372         -92.7198         reflect
+   242          374         -92.7198         contract outside
+   243          375         -92.7198         reflect
+   244          377         -92.7198         contract inside
+   245          379         -92.7198         contract outside
+   246          381         -92.7198         contract inside
+   247          383         -92.7198         contract inside
+   248          385         -92.7198         contract inside
+   249          387         -92.7198         contract outside
+   250          389         -92.7198         contract inside
+   251          390         -92.7198         reflect
+   252          391         -92.7198         reflect
+   253          392         -92.7198         reflect
+   254          394         -92.7198         contract inside
+   255          396         -92.7198         contract inside
+   256          397         -92.7198         reflect
+   257          399         -92.7198         contract outside
+   258          401         -92.7198         contract inside
+   259          402         -92.7198         reflect
+   260          404         -92.7198         contract inside
+   261          406         -92.7198         reflect
+   262          408         -92.7198         reflect
+   263          410         -92.7198         contract inside
+   264          412         -92.7198         reflect
+   265          414         -92.7198         reflect
+   266          416         -92.7198         reflect
+   267          417         -92.7198         reflect
+   268          419         -92.7198         contract inside
+   269          421         -92.7198         contract inside
+   270          423         -92.7198         reflect
+   271          425         -92.7198         contract inside
+   272          427         -92.7198         reflect
+   273          429         -92.7198         contract inside
+   274          431         -92.7198         contract inside
+   275          433         -92.7198         reflect
+   276          434         -92.7198         reflect
+   277          436         -92.7198         contract inside
+   278          438         -92.7198         contract inside
+   279          439         -92.7198         reflect
+   280          441         -92.7198         reflect
+   281          443         -92.7198         reflect
+   282          445         -92.7198         contract inside
+   283          446         -92.7198         reflect
+   284          448         -92.7198         reflect
+   285          449         -92.7198         reflect
+   286          451         -92.7198         contract inside
+   287          453         -92.7198         contract outside
+   288          455         -92.7198         contract inside
+   289          457         -92.7198         contract inside
+   290          459         -92.7198         contract inside
+   291          461         -92.7198         reflect
+   292          462         -92.7198         reflect
+   293          463         -92.7198         reflect
+   294          464         -92.7198         reflect
+   295          466         -92.7198         contract inside
+   296          468         -92.7198         contract inside
+   297          469         -92.7198         reflect
+   298          471         -92.7198         contract inside
+   299          473         -92.7198         contract inside
+   300          475         -92.7198         contract outside
+   301          477         -92.7198         contract outside
+   302          478         -92.7198         reflect
+   303          480         -92.7198         expand
+   304          481         -92.7198         reflect
+   305          482         -92.7198         reflect
+   306          483         -92.7198         reflect
+   307          485         -92.7198         contract inside
+   308          487         -92.7198         contract inside
+   309          488         -92.7198         reflect
+   310          490         -92.7198         reflect
+   311          491         -92.7198         reflect
+   312          493         -92.7198         contract inside
+   313          495         -92.7198         contract inside
+   314          497         -92.7198         reflect
+   315          498         -92.7198         reflect
+   316          499         -92.7198         reflect
+   317          500         -92.7198         reflect
+   318          501         -92.7198         reflect
+   319          502         -92.7198         reflect
+   320          504         -92.7198         contract inside
+   321          506         -92.7198         contract inside
+   322          507         -92.7198         reflect
+   323          508         -92.7198         reflect
+   324          510         -92.7198         contract inside
+   325          511         -92.7198         reflect
+   326          512         -92.7198         reflect
+   327          514         -92.7198         contract inside
+   328          516         -92.7198         contract inside
+   329          518         -92.7198         contract inside
+   330          520         -92.7198         reflect
+   331          522         -92.7198         contract outside
+   332          524         -92.7198         contract inside
+   333          526         -92.7198         contract inside
+   334          527         -92.7198         reflect
+   335          528         -92.7198         reflect
+   336          529         -92.7198         reflect
+   337          531         -92.7198         contract outside
+   338          532         -92.7198         reflect
+   339          534         -92.7198         contract inside
+   340          536         -92.7198         contract inside
+ 
+Optimization terminated:
+ the current x satisfies the termination criteria using OPTIONS.TolX of 1.000000e-06 
+ and F(X) satisfies the convergence criteria using OPTIONS.TolFun of 1.000000e-08 
 
 
-In alternatePrintPath
+Final value of minus the log posterior (or likelihood):-92.719761 
 
-In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('print', 'D:\Programmes\Matlab2020\toolbox\matlab\graphics\printing\print.m', 83)" style="font-weight:bold">print</a> (<a href="matlab: opentoline('D:\Programmes\Matlab2020\toolbox\matlab\graphics\printing\print.m',83,0)">line 83</a>)
-pj = alternatePrintPath(pj);
+RESULTS FROM POSTERIOR ESTIMATION
+parameters
+  prior mean     mode    s.d. prior pstdev
 
-In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dyn_saveas', 'D:\Programmes\Dynare\dynare-4.6.2\matlab\dyn_saveas.m', 42)" style="font-weight:bold">dyn_saveas</a> (<a href="matlab: opentoline('D:\Programmes\Dynare\dynare-4.6.2\matlab\dyn_saveas.m',42,0)">line 42</a>)
-    print(h,'-depsc2',[fname,'.eps'])
-
-In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plot_priors', 'D:\Programmes\Dynare\dynare-4.6.2\matlab\plot_priors.m', 76)" style="font-weight:bold">plot_priors</a> (<a href="matlab: opentoline('D:\Programmes\Dynare\dynare-4.6.2\matlab\plot_priors.m',76,0)">line 76</a>)
-    dyn_saveas(hplt,[M_.fname, '/graphs/' M_.fname '_Priors'
-    int2str(plt)],options_.nodisplay,options_.graph_format);
-
-In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare_estimation_init', 'D:\Programmes\Dynare\dynare-4.6.2\matlab\dynare_estimation_init.m', 338)" style="font-weight:bold">dynare_estimation_init</a> (<a href="matlab: opentoline('D:\Programmes\Dynare\dynare-4.6.2\matlab\dynare_estimation_init.m',338,0)">line 338</a>)
-            plot_priors(bayestopt_,M_,estim_params_,options_)
-
-In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare_estimation_1', 'D:\Codes\Matlab_File\Dynare_Modified_files\Helper\DynareModif\dynare_estimation_1.m', 112)" style="font-weight:bold">dynare_estimation_1</a> (<a href="matlab: opentoline('D:\Codes\Matlab_File\Dynare_Modified_files\Helper\DynareModif\dynare_estimation_1.m',112,0)">line 112</a>)
-    dynare_estimation_init(var_list_, dname, [], M_, options_, oo_,
-    estim_params_, bayestopt_);
-
-In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare_estimation', 'D:\Programmes\Dynare\dynare-4.6.2\matlab\dynare_estimation.m', 105)" style="font-weight:bold">dynare_estimation</a> (<a href="matlab: opentoline('D:\Programmes\Dynare\dynare-4.6.2\matlab\dynare_estimation.m',105,0)">line 105</a>)
-    dynare_estimation_1(var_list,dname);
-
-In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('IRFmatch.driver', 'D:\Codes\Matlab_File\Dynare_Modified_files\IRFmatching\+IRFmatch\driver.m', 245)" style="font-weight:bold">IRFmatch.driver</a> (<a href="matlab: opentoline('D:\Codes\Matlab_File\Dynare_Modified_files\IRFmatching\+IRFmatch\driver.m',245,0)">line 245</a>)
-oo_recursive_=dynare_estimation(var_list_);
-
-In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'D:\Programmes\Dynare\dynare-4.6.2\matlab\dynare.m', 293)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('D:\Programmes\Dynare\dynare-4.6.2\matlab\dynare.m',293,0)">line 293</a>)
-evalin('base',[fname '.driver']) ;
-} 
-cccc
-{Unrecognized function or variable 'cccc'.
-} 
-cccexdit dsge_likelihood
-{Unrecognized function or variable 'cccexdit'.
-} 
-exdit dsge_likelihood
-exdit irf_matching
-plot_irfs
-{Reference to non-existent field 'nvx'.
-
-Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('get_posterior_parameters', 'D:\Programmes\Dynare\dynare-4.6.2\matlab\get_posterior_parameters.m', 38)" style="font-weight:bold">get_posterior_parameters</a> (<a href="matlab: opentoline('D:\Programmes\Dynare\dynare-4.6.2\matlab\get_posterior_parameters.m',38,0)">line 38</a>)
-nvx = estim_params_.nvx;
-
-Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plot_irfs', 'D:\Codes\Matlab_File\plot_irfs.m', 5)" style="font-weight:bold">plot_irfs</a> (<a href="matlab: opentoline('D:\Codes\Matlab_File\plot_irfs.m',5,0)">line 5</a>)
-xparam1 = get_posterior_parameters('mode',M_,estim_params_,oo_,options_);
-} 
-[1,2,3]
-
-ans =
-
-     1     2     3
-
-x = randn(3,3,3)
-
-x(:,:,1) =
-
-    0.2962   -0.3587    0.1203
-    1.2008   -0.1299    1.1363
-    1.0902    0.7337   -0.6868
+f11   0.300   0.3098  0.3798 norm 1.0000 
+f12   0.200   0.1917  0.3247 norm 1.0000 
+f21   0.500   0.5096  0.4129 norm 1.0000 
+f22   0.100   0.0916  0.3407 norm 1.0000 
+b12   1.000   0.9788  0.2558 norm 1.0000 
+b21   0.500   0.5091  0.2362 norm 1.0000 
 
 
-x(:,:,2) =
-
-    0.4717   -1.3455   -2.3419
-    0.2883    0.0007    1.2481
-    1.3919    0.0535    2.8092
+Log data density [Laplace approximation] is 85.592540.
 
 
-x(:,:,3) =
+MODEL SUMMARY
 
-   -0.2322    0.3843    1.6182
-    0.2870   -0.3798   -0.8472
-   -0.4646   -0.1018   -0.5759
-
-x(:,[1,2],:)
-
-ans(:,:,1) =
-
-    0.2962   -0.3587
-    1.2008   -0.1299
-    1.0902    0.7337
+  Number of variables:         2
+  Number of stochastic shocks: 2
+  Number of state variables:   2
+  Number of jumpers:           0
+  Number of static variables:  0
 
 
-ans(:,:,2) =
+MATRIX OF COVARIANCE OF EXOGENOUS SHOCKS
+Variables        eps1      eps2
+eps1         1.000000  0.000000
+eps2         0.000000  1.000000
 
-    0.4717   -1.3455
-    0.2883    0.0007
-    1.3919    0.0535
+POLICY AND TRANSITION FUNCTIONS
+                                  X1              X2
+X1(-1)                      0.309822        0.509567
+X2(-1)                      0.191663        0.091602
+eps1                        1.000000        1.964253
+eps2                        1.021649        1.000000
 
 
-ans(:,:,3) =
+THEORETICAL MOMENTS
+VARIABLE         MEAN  STD. DEV.   VARIANCE
+X1             0.0000     1.7450     3.0451
+X2             0.0000     2.4661     6.0817
 
-   -0.2322    0.3843
-    0.2870   -0.3798
-   -0.4646   -0.1018
 
-render process terminated: TS_PROCESS_WAS_KILLED
-render process terminated: TS_PROCESS_WAS_KILLED
+
+VARIANCE DECOMPOSITION (in percent)
+        eps1    eps2
+X1     53.79   46.21
+X2     75.11   24.89
+
+
+
+MATRIX OF CORRELATIONS
+Variables        X1      X2
+X1           1.0000  0.9501
+X2           0.9501  1.0000
+
+
+
+COEFFICIENTS OF AUTOCORRELATION
+Order          1       2       3       4       5
+X1        0.5672  0.2970  0.1585  0.0842  0.0448
+X2        0.4342  0.2436  0.1279  0.0682  0.0362
+
+aux =
+
+    0.4000    0.3000    0.3098    0.3000
+    0.4000    0.2000    0.1917    0.2000
+    0.4000    0.5000    0.5096    0.5000
+    0.4000    0.1000    0.0916    0.1000
+    1.0000    1.0000    0.9788    1.0000
+    0.6000    0.5000    0.5091    0.5000
+
+-----------
+Estimation results:
+    calibrated       true  posterior      prior 
+f11     0.4000     0.3000     0.3098     0.3000 
+f12     0.4000     0.2000     0.1917     0.2000 
+f21     0.4000     0.5000     0.5096     0.5000 
+f22     0.4000     0.1000     0.0916     0.1000 
+b12     1.0000     1.0000     0.9788     1.0000 
+b21     0.6000     0.5000     0.5091     0.5000 
+
+Total computing time : 0h00m11s
+Note: warning(s) encountered in MATLAB/Octave code
